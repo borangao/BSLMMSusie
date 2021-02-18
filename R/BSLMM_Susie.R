@@ -297,8 +297,8 @@ susie_BSLMM <- function (X,Y,L = min(10,ncol(X)),
 
   for (i in 1:max_iter) {
     D1 = s$sigma_k*D/(1+s$sigma_k*D)/s$sigma2
-    UtXD1 = sweep(t(UtX),1,FUN="*",D1)
-    UtXD1_square = apply(sweep(UtX_square,2,FUN="*",D1),2,sum)
+    UtXD1 = sweep(t(UtX),2,FUN="*",D1)
+    UtXD1_square = apply(sweep(UtX_square,1,FUN="*",D1),2,sum)
 
     if (track_fit)
       tracking[[i]] = susie_slim(s)
